@@ -2,6 +2,7 @@
 
 (Include an eye-catching demo animation here, want to show both stochastic video prediction and probabilistic PV output prediction)
 
+
 ---
 
 [**Pre-print**](https://arxiv.org/abs/2306.11682)
@@ -63,8 +64,9 @@ Note: This study was conducted before the official release of our curated datase
 
 ### Generated Sky Images for Probabilistic Solar Forecasting
 
-## Limitations and Future Work
+![pred_curve_demo_1](https://github.com/yuhao-nie/SkyGPT-stochastic-sky-video-prediction-for-solar-forecasting/assets/29718809/50c61d7d-987c-485c-a02d-8073fc4187a8)
 
+![pred_curve_demo_2](https://github.com/yuhao-nie/SkyGPT-stochastic-sky-video-prediction-for-solar-forecasting/assets/29718809/c55dc63a-8de8-4099-bfb7-b013fed3efba)
 
 ## Reference
 <a id="1">[1]</a> 
