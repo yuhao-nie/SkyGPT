@@ -9,7 +9,7 @@
 
 The variability of solar photovoltaic (PV) output, driven by rapidly changing cloud dynamics, hinders the transition to reliable renewable energy systems. With the recent advances in generative artificial intelligence, synthesis of possible images of the future sky has potential for aiding in forecasts of PV power output. Here, we introduce *SkyGPT*, a physics-constrained stochastic video prediction model, to generate plausible future sky videos with diverse cloud motion patterns based on past sky image sequences. We demonstrate the potential of using the synthetic future sky images for a 15-minute-ahead probabilistic PV output forecasting task using real-world power generation data from a 30-kW rooftop PV system.
 
-![solar_forecasting_framework](/figures/proposed_forecasting_system.png)
+![solar_forecasting_framework](/figures/proposed_forecasting_system_v2.png)
 <p align=center>
 Figure 1: Proposed probabilistic solar forecasting framework.
 </p>
@@ -37,7 +37,7 @@ Although deep learning-based methods achieve the state-of-the-art in sky image-b
 As a first step, we train video prediction models to generate future sky images based on past sky image sequences. We name our proposed stochastic sky video prediction model *SkyGPT*, which is inspired by two emerging video prediction models VideoGPT [[1](#1)] and PhyDNet [[2](#2)]. The SkyGPT follows the general structure of VideoGPT, which consists of two main parts, a vector quantized variational auto-encoder (VQ-VAE) [[3](#3)] and an image transformer [[4](#4)]. The VQ-VAE encompasses an encoder-decoder architecture similar to classical VAEs, but it learns a discrete latent representation of input data instead of a continuous one. The image transformer, as a prior network, is used to model the latent tokens in an auto-regressive fashion, where new predictions are made by feeding back the predictions from previous steps. To enhance the modeling of cloud motion, we incorporate prior physical knowledge into the transformer by adapting a PDE-constrained module called PhyCell from the PhyDNet [[2](#2)] for latent modeling. We call this entire architecture a Phy-transformer (in short of physics-informed transformer) to distinguish it from the transformer component within the architecture. 
 
 <p align="center">
-<img src="figures/SkyGPT_for_future_sky_image_prediction.png" alt="skygpt" width="70%" height="auto">
+<img src="figures/SkyGPT_for_future_sky_image_prediction_v2.png" alt="skygpt" width="70%" height="auto">
 </p>
 <p align=justify>
 Figure 2: SkyGPT for future sky image prediction. The prediction is disentangled in the encoding space by the PhyCell and Transformer. For visualization purposes, the next step encodings predicted by PhyCell and Transformer are decoded, which shows that PhyCell captures the physical pattern of the motion, while Transformer is responsible for filling in the prediction with fine-grained details.
