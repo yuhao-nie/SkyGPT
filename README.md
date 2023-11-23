@@ -67,7 +67,7 @@ Here, we demonstrate two examples of predicted videos by SkyGPT compared to benc
 (a) The sky condition changing from partly cloudy to overcast
 </p>
 
-![video_pred_demo_1](/figures/video_pred_demo_1_v2.gif)
+![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
 <p align=center>
 (b) The sky condition changing from partly cloudy to clear sky
