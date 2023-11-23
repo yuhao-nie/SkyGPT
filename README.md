@@ -66,27 +66,21 @@ Here, we demonstrate two examples of predicted videos by SkyGPT compared to benc
 <p align=center>
 (a) The sky condition changing from partly cloudy to overcast
 </p>
-<div style="text-align: center; ">
-    <figcaption style="font-size: small;font-style: italic;">
-    <img src="figures/video_pred_demo_1.gif" alt="video_pred_demo_1" width="400"/>
-</div>
+
+![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
 <p align=center>
 (b) The sky condition changing from partly cloudy to clear sky
 </p>
-<div style="text-align: center;">
-    <img src="figures/video_pred_demo_2.gif" alt="video_pred_demo_2" width="400"/>
-</div>
 
-
+![video_pred_demo_2](/figures/video_pred_demo_2.gif)
 
 ### Generated Sky Images for Probabilistic Solar Forecasting
 
-Here we show a demonstration of our proposed compared with a 
+Here we show a demonstration of using the generated future sky images by *SkyGPT* compared with an end-to-end deep solar forecasting model SUNSET. 
 
-![pred_curve_demo_1](https://github.com/yuhao-nie/SkyGPT-stochastic-sky-video-prediction-for-solar-forecasting/assets/29718809/50c61d7d-987c-485c-a02d-8073fc4187a8)
-
-![pred_curve_demo_2](https://github.com/yuhao-nie/SkyGPT-stochastic-sky-video-prediction-for-solar-forecasting/assets/29718809/c55dc63a-8de8-4099-bfb7-b013fed3efba)
+![pred_curve_demo_1](/figures/pred_curve_demo_1.gif)
+![pred_curve_demo_2](/figures/pred_curve_demo_2.gif)
 
 Here is a on the validation and test set 
 
