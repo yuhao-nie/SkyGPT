@@ -45,10 +45,10 @@ A list of all code files in the `/codes` folder can be found in the table below.
 |&nbsp; `SkyGPT/model/resnet.py` |Python file contains resnet module as encoder for SkyGPT.|
 |&nbsp; `SkyGPT/model/utils.py` |Python file contains helper functions used in SkyGPT.|
 |&nbsp; `SkyGPT/model/vqvae.py` |Python file contains the VQ-VAE part of SkyGPT.|
-|&nbsp; `SkyGPT/script/training/training_vqvae.py` |Python file for training VQ-VAE.|
-|&nbsp; `SkyGPT/script/training/training_transformer.py` |Python file for training transformer.|
-|&nbsp; `SkyGPT/script/sampling/reformat_input.py` |Python file for reformating the input data for SkyGPT.|
-|&nbsp; `SkyGPT/script/sampling/sample_gen.py` |Python file for generating samples for SkyGPT.|
+|&nbsp; `SkyGPT/script/training_vqvae.py` |Python file for training VQ-VAE.|
+|&nbsp; `SkyGPT/script/training_transformer.py` |Python file for training transformer.|
+|&nbsp; `SkyGPT/script/reformat_input.py` |Python file for reformating the input data for SkyGPT.|
+|&nbsp; `SkyGPT/script/sample_gen.py` |Python file for generating samples for SkyGPT.|
 |&nbsp; `eval/quan_eval_det_models.ipynb` |Jupyter Notebook used to quantatively evaluate the performance of deterministic video prediction models ConvLSTM, PhyDNet and PhyDNet+GAN using metrics including MAE, MSE and VGG Cosine Similarity.|
 |&nbsp; `eval/quan_eval_VideoGPT.ipynb` |Jupyter Notebook used to quantatively evaluate the performance of stochastic video prediction model VideoGPT for using metrics including MAE, MSE and VGG Cosine Similarity.|
 |&nbsp; `eval/quan_eval_SkyGPT.ipynb` |Jupyter Notebook used to quantatively evaluate the performance of stochastic video prediction model SkyGPT for using metrics including MAE, MSE and VGG Cosine Similarity.|

@@ -47,6 +47,7 @@ class PhyCell_Cell(nn.Module):
         next_hidden = hidden_tilde + K * (x-hidden_tilde)   # correction , Haddamard product     
         return next_hidden
 
+# Incorporate PhyCell into VideoGPT architecture
 class PhyCell(nn.Module):
     def __init__(self, input_shape, input_dim, F_hidden_dims, n_layers, kernel_size, heads, device):
         super(PhyCell, self).__init__()
@@ -89,19 +90,16 @@ class PhyCell(nn.Module):
     def setHidden(self, H):
         self.H = H
 
-class VideoGPT(pl.LightningModule):
+class SkyGPT(pl.LightningModule):
     def __init__(self, args):
         super().__init__()
         self.args = args
 
         # Load VQ-VAE and set all parameters to no grad
         from .vqvae import VQVAE
-        from .download import load_vqvae
-        # args.vqvae = '/scratch/groups/abrandt/solar_forecasting/GAN_project/models/VideoGPT/trained_models/VQVAE_full_2min/lightning_logs/version_0/checkpoints/epoch=47-step=160031.ckpt'
-        if not os.path.exists(args.vqvae):
-            self.vqvae = load_vqvae(args.vqvae)
-        else:
-            self.vqvae =  VQVAE.load_from_checkpoint(args.vqvae)
+        # Path to trained VQ-VAE model
+        args.vqvae = '/scratch/groups/abrandt/solar_forecasting/GAN_project/models/VideoGPT/trained_models/VQVAE_full_2min/lightning_logs/version_0/checkpoints/epoch=47-step=160031.ckpt'    
+        self.vqvae =  VQVAE.load_from_checkpoint(args.vqvae)
         for p in self.vqvae.parameters():
             p.requires_grad = False
         self.vqvae.codebook._need_init = False
@@ -121,7 +119,7 @@ class VideoGPT(pl.LightningModule):
         else:
             frame_cond_shape = None
 
-        # VideoGPT transformer
+        # SkyGPT transformer
         self.shape = self.vqvae.latent_shape
 
         self.fc_in = nn.Linear(self.vqvae.embedding_dim, args.hidden_dim, bias=False)
@@ -175,7 +173,6 @@ class VideoGPT(pl.LightningModule):
 
         samples = torch.zeros((n,) + self.shape).long().to(device)
         
-        # newly added
         samples_phycell = torch.zeros((n,) + self.shape).long().to(device)
         samples_transformer = torch.zeros((n,) + self.shape).long().to(device)
         
@@ -198,15 +195,11 @@ class VideoGPT(pl.LightningModule):
                     else:                        
                         base_embeddings = torch.cat([
                             base_embeddings, 
-                            # self.vqvae.codebook.dictionary_lookup(samples)[:, idx[0]][:, None]
                             self.vqvae.codebook.dictionary_lookup(samples)[:, idx[0] - 1][:, None]
                         ], axis=1)
                     reuse_phycell = False
  
                 embeddings = self.vqvae.codebook.dictionary_lookup(samples)
-                
-                # newly added
-                #print("embeddings.shape:",embeddings.shape)
                 
                 if prev_idx is None:
                     # set arbitrary input values for the first token
@@ -220,9 +213,6 @@ class VideoGPT(pl.LightningModule):
                 # newly added
                 logits,embedding_phycell,embedding_transformer = self(embeddings_slice, samples_slice, cond,
                               decode_step=i, decode_idx=idx, x_full=base_embeddings, include_loss=False, reuse_phycell=reuse_phycell)
-                
-                #print("embedding_phycell.shape: ", embedding_phycell.shape)
-                #print("embedding_transformer.shape: ", embedding_transformer.shape)
                 
                 # squeeze all possible dim except batch dimension
                 logits = logits.squeeze().unsqueeze(0) if logits.shape[0] == 1 else logits.squeeze()
@@ -320,18 +310,6 @@ class VideoGPT(pl.LightningModule):
         # loss, _ = self(x, targets, cond)
         loss, logits = self(x, targets, cond)
 
-        # if batch_idx % 2500 == 1:
-        #     with torch.no_grad():
-        #         cur_logits = logits.squeeze().unsqueeze(0) if logits.shape[0] == 1 else logits.squeeze()
-        #         probs = F.softmax(cur_logits, dim=-1)
-        #         probs_shape = probs.shape
-        #         samples = torch.multinomial(probs.view(-1, probs_shape[-1]), 1).squeeze(-1)
-        #         samples = samples.reshape(*probs_shape[:-1])
-        #         samples = self.vqvae.decode(samples)
-        #         samples = torch.clamp(samples, -0.5, 0.5) + 0.5
-        #     torchvision.utils.save_image(torch.flip(samples[0], [0]).permute(1, 0, 2, 3), 'samples.png')
-        #     self.sample(n=len(samples), batch=batch)
-
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -353,7 +331,7 @@ class VideoGPT(pl.LightningModule):
         parser.add_argument('--n_cond_frames', type=int, default=0)
         parser.add_argument('--class_cond', action='store_true')
 
-        # VideoGPT hyperparmeters
+        # SkyGPT hyperparmeters
         parser.add_argument('--hidden_dim', type=int, default=576)
         parser.add_argument('--heads', type=int, default=4)
         parser.add_argument('--layers', type=int, default=8)

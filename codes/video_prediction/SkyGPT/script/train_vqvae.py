@@ -1,7 +1,7 @@
 import argparse
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
-from videogpt import VQVAE, VideoData
+from skygpt import VQVAE, VideoData
 
 
 def main():

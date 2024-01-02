@@ -1,7 +1,7 @@
 import argparse
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
-from videogpt import VideoGPT, VideoData
+from skygpt import SkyGPT, VideoData
 
 
 def main():
@@ -9,7 +9,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser = pl.Trainer.add_argparse_args(parser)
-    parser = VideoGPT.add_model_specific_args(parser)
+    parser = SkyGPT.add_model_specific_args(parser)
     parser.add_argument('--data_path', type=str, required=True)
     parser.add_argument('--resolution', type=int, default=128)
     parser.add_argument('--sequence_length', type=int, default=16)
@@ -23,7 +23,7 @@ def main():
     data.test_dataloader()
 
     args.class_cond_dim = data.n_classes if args.class_cond else None
-    model = VideoGPT(args)
+    model = SkyGPT(args)
 
     callbacks = []
     callbacks.append(ModelCheckpoint(monitor='val/loss', mode='min', save_top_k=-1))
