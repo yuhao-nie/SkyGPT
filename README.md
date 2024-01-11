@@ -10,6 +10,11 @@
 
 [**Pre-print**](https://arxiv.org/abs/2306.11682)
 
+![video_pred_demo_1](/figures/video_pred_demo_1.gif)
+
+![pred_curve_demo_2](/figures/pred_curve_demo_2.gif)
+
+## Context
 The variability of solar photovoltaic (PV) output, driven by rapidly changing cloud dynamics, hinders the transition to reliable renewable energy systems. Although sky image-based methods using deep learning achieves the state-of-the-art in forecasting solar power, two major gaps exist:
 
 1. Existing methods often struggle to accurately capture cloud dynamics. Temporal lags in predictions are often observed when PV generation fluctuates during short-term cloudy events.
