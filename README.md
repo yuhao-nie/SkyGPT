@@ -8,7 +8,7 @@
 ---
 -->
 
-[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172)
+[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172)|[**Dataset**](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing)
 
 ![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
@@ -76,7 +76,7 @@ The data used in this study are stored in [Google Drive](https://drive.google.co
 | `test_set_2019nov_dec.hdf5` |  A file-directory like structure consisting of only one group: "test", for storing additional test data (5 cloudy days) from 2019 November to December, which is outside the timeframe of the data in video_prediction_dataset.hdf5 to test how well the model extrapolates. Similar to video_prediction_dataset.hdf5, it contains four types of data: "images_log", "images_pred", "pv_log" and "pv_pred" in Python Numpy array format.|
 | `times_curr_test_2019nov_dec.npy` |  Python NumPy array of time stamps corresponding to time $t$ of the test set in test_set_2019nov_dec.hdf5 file. |
 
-Note: This study was conducted before the official release of our curated dataset [SKIPP'D](https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset) [[5](#5)], which is more organized and has a number of updates from the dataset we used here. We encourage the readers to examine the SKIPP'D dataset.
+Note: This study was conducted before the official release of our curated dataset [SKIPP'D](https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset) [[5](#5)], which is more organized and has a number of updates from the dataset we used here. If you find the data useful, please cite our [SKIPP'D dataset paper](https://doi.org/10.1016/j.solener.2023.03.043).
 
 ## Stochastic Sky Video prediction
 As a first step, we train video prediction models to generate future sky images based on past sky image sequences. We name our proposed stochastic sky video prediction model *SkyGPT*, which is inspired by two emerging video prediction models VideoGPT [[1](#1)] and PhyDNet [[2](#2)]. The SkyGPT follows the general structure of VideoGPT, which consists of two main parts, a vector quantized variational auto-encoder (VQ-VAE) [[3](#3)] and an image transformer [[4](#4)]. The VQ-VAE encompasses an encoder-decoder architecture similar to classical VAEs, but it learns a discrete latent representation of input data instead of a continuous one. The image transformer, as a prior network, is used to model the latent tokens in an auto-regressive fashion, where new predictions are made by feeding back the predictions from previous steps. To enhance the modeling of cloud motion, we incorporate prior physical knowledge into the transformer by adapting a PDE-constrained module called PhyCell from the PhyDNet [[2](#2)] for latent modeling. We call this entire architecture a Phy-transformer (in short of physics-informed transformer) to distinguish it from the transformer component within the architecture. 
