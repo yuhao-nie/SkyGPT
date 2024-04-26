@@ -8,7 +8,7 @@
 ---
 -->
 
-[**Pre-print**](https://arxiv.org/abs/2306.11682)
+[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172)
 
 ![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
