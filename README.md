@@ -8,7 +8,7 @@
 ---
 -->
 
-[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172) | [**Data for this study**](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing) | [**SKIPP'D dataset**](https://doi.org/10.1016/j.solener.2023.03.043)
+[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172) | [**Data**](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing) | [**SKIPP'D dataset**](https://doi.org/10.1016/j.solener.2023.03.043)
 
 ![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
