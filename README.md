@@ -8,7 +8,7 @@
 ---
 -->
 
-[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172) | [**Dataset**](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing)
+[**Paper**](https://doi.org/10.1016/j.adapen.2024.100172) | [**Data for this study**](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing) | [**SKIPP'D dataset**](https://doi.org/10.1016/j.solener.2023.03.043)
 
 ![video_pred_demo_1](/figures/video_pred_demo_1.gif)
 
@@ -65,7 +65,7 @@ A list of all code files in the `/codes` folder can be found in the table below.
 
 
 ## Dataset
-We leverage an in-house dataset ($\mathscr{D}$) with 334,038 aligned pairs of sky images ($\mathcal{I}$) and PV power generation ($\mathcal{P}$) records, $\mathscr{D} = \{(\mathcal{I}_i, \mathcal{P}_i) \mid i\in \mathbb{Z}: 1\leq i\leq 334\mathrm{,}038\}$, for the experiments in this study. Please check out our [paper](https://arxiv.org/abs/2306.11682) for details about the dataset and data processing steps.
+We leverage an in-house dataset ($\mathscr{D}$) with 334,038 aligned pairs of sky images ($\mathcal{I}$) and PV power generation ($\mathcal{P}$) records, $\mathscr{D} = \{(\mathcal{I}_i, \mathcal{P}_i) \mid i\in \mathbb{Z}: 1\leq i\leq 334\mathrm{,}038\}$, for the experiments in this study. Please check out our [paper](https://doi.org/10.1016/j.adapen.2024.100172) for details about the dataset and data processing steps.
 
 The data used in this study are stored in [Google Drive](https://drive.google.com/drive/folders/1J2I-Aj70mbvuocwHCo-PYurBhfCCZUGh?usp=sharing) and can be accessed for free. A list of data files  is shown in the table below. Note: This study was conducted before the official release of our curated dataset [SKIPP'D](https://github.com/yuhao-nie/Stanford-solar-forecasting-dataset) [[5](#5)], which is more organized and has a number of updates from the dataset we used here. Please cite our [SKIPP'D dataset paper](https://doi.org/10.1016/j.solener.2023.03.043) if you find the data useful.
 
@@ -120,6 +120,34 @@ We then demonstrate using the predicted future sky images by *SkyGPT* as input f
 
 ![pred_curve_demo_1](/figures/pred_curve_demo_1.gif)
 ![pred_curve_demo_2](/figures/pred_curve_demo_2.gif)
+
+### Citation
+If you find our study useful to your research, please cite:
+```
+@article{nie2024skygpt,
+  title={SkyGPT: Probabilistic Ultra-short-term Solar Forecasting Using Synthetic Sky Images from Physics-constrained VideoGPT},
+  author={Nie, Yuhao and Zelikman, Eric and Scott, Andea and Paletta, Quentin and Brandt, Adam},
+  journal={Advances in Applied Energy},
+  pages={100172},
+  year={2024},
+  publisher={Elsevier}
+}
+```
+
+If you use our dataset, please cite:
+
+```
+@article{nie2023skipp,
+  title={SKIPP’D: A SKy Images and Photovoltaic Power Generation Dataset for short-term solar forecasting},
+  author={Nie, Yuhao and Li, Xiatong and Scott, Andea and Sun, Yuchi and Venugopal, Vignesh and Brandt, Adam},
+  journal={Solar Energy},
+  volume={255},
+  pages={171--179},
+  year={2023},
+  publisher={Elsevier}
+}
+```
+
 
 ## Reference
 <a id="1">[1]</a> 
