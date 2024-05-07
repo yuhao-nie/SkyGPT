@@ -18,7 +18,7 @@
 The variability of solar photovoltaic (PV) output, driven by rapidly changing cloud dynamics, hinders the transition to reliable renewable energy systems. Although sky image-based methods using deep learning achieves the state-of-the-art in forecasting solar power, two major gaps exist:
 
 1. Existing methods often struggle to accurately capture cloud dynamics. Temporal lags in predictions are often observed when PV generation fluctuates during short-term cloudy events.
-2. There is commonly lack of uncertainty quantification for solar power predictions, which however is critical to risk management in renewable-heavy grids.
+2. There is commonly lack of uncertainty quantification for image-based solar power predictions, which however is critical to risk management in renewable-heavy grids.
 
 Information on future sky conditions, especially cloud coverage, is beneficial for PV output forecasting. With the recent advances in generative artificial intelligence, synthesis of possible images of the future sky has potential for aiding in forecasts of solar PV power generation. 
 
